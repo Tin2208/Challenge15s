@@ -21,14 +21,14 @@ const UserDetails = ({ user, isDark }) => {
 
         <div className="ml-[2.3rem] flex flex-row flex-wrap mt-4 custom-flex  unsetMargin ">
           <h2
-            className={` textUserSM text-[26px] font-bold mr-[15rem] relative bottom-[0.3rem] leading-[2.06rem]
+            className={` unsetMarginRight textUserSM text-[26px] font-bold mr-[15rem] relative bottom-[0.3rem] leading-[2.06rem]
           ${isDark ? "text-white" : "text-[#2a3341]"}`}
           >
             {user.name || user.login}
           </h2>
           <a
             className="text-[#0077ff]  text[16px] underline order-2 bottom-6 relative DeleteOder textLoginSM"
-            href="#"
+            href={`https://github.com/${user.login}`}
           >
             @{user.login}
           </a>
@@ -84,7 +84,7 @@ const UserDetails = ({ user, isDark }) => {
           {user.following}
         </p>
       </div>
-      <div className="social ml-[10rem] pb-16 ps-6 grid grid-cols-2 gird-rows-2 mt-10 relative gap-6 flex-sm">
+      <div className="social flex-column ml-[10rem] pb-16 ps-6 grid grid-cols-2 gird-rows-2 mt-10 relative gap-6 flex-sm unsetMarginLeftSM">
         <p
           className={`flex gap-2 items-center text-[16px] ${
             user.location
@@ -111,14 +111,15 @@ const UserDetails = ({ user, isDark }) => {
           </svg>
           {user.location ? user.location : "Not Available"}
         </p>
-        <p
-          className={`flex gap-2 items-center text-[16px] order-3 oderNone ${
+        <a
+          className={`flex gap-2 items-center text-[16px] order-3 oderNone hover:underline ${
             user.blog
               ? isDark
                 ? "text-white"
                 : "text-[#4b699b]"
               : "text-[#a5b4cd]"
           }`}
+          href={user.blog || "#"}
         >
           <svg
             viewBox="0 0 20 20"
@@ -133,15 +134,21 @@ const UserDetails = ({ user, isDark }) => {
             </g>
           </svg>
           {user.blog ? user.blog : "Not Available"}
-        </p>
-        <p
-          className={`flex gap-2 items-center text-[16px] ${
+        </a>
+
+        <a
+          className={`flex gap-2 items-center text-[16px]  hover:underline ${
             user.twitter_username
               ? isDark
                 ? "text-white"
                 : "text-[#4b699b]"
               : "text-[#a5b4cd]"
           }`}
+          href={
+            user.twitter_username
+              ? `https://twitter.com/${user.twitter_username}`
+              : "#"
+          }
         >
           <svg
             viewBox="0 0 20 18"
@@ -167,16 +174,18 @@ const UserDetails = ({ user, isDark }) => {
           </svg>
           {user.twitter_username
             ? `@${user.twitter_username}`
-            : "Not Available"}{" "}
-        </p>
-        <p
-          className={`flex gap-2 items-center text-[16px] ${
+            : "Not Available"}
+        </a>
+
+        <a
+          className={`flex gap-2 items-center text-[16px] order-4 underline ${
             user.company
               ? isDark
                 ? "text-white"
                 : "text-[#4b699b]"
               : "text-[#a5b4cd]"
           }`}
+          href={user.company ? "#" : "#"}
         >
           <svg
             viewBox="0 0 20 20"
@@ -192,7 +201,7 @@ const UserDetails = ({ user, isDark }) => {
             </g>
           </svg>
           {user.company ? user.company : "Not Available"}
-        </p>
+        </a>
       </div>
     </div>
   );

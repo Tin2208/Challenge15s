@@ -13,6 +13,10 @@ body {
   height: 100%;
 }
 
+.flex-grow{
+  flex-grow: 2;
+}
+
 @media (max-width: 864px) {
   .custom-flex {
     flex-direction: column;
@@ -39,6 +43,22 @@ body {
 
   .social {
     margin: 40px 1.5rem 24px 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .unsetMarginRight {
+    margin-right: unset;
+  }
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .oderNone {
+    order: unset;
+  }
+  .oder3 {
+    order: 3;
   }
 }
 
@@ -76,11 +96,11 @@ body {
     flex-direction: column;
   }
 
-  .oderNone{
-    order: unset;
-  }
-
-  .padding32{
+  .padding32 {
     padding-top: 32px;
+  }
+  .unsetMarginLeftSM {
+    margin-left: unset;
+    margin-top: 24px;
   }
 }
